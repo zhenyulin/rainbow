@@ -1,0 +1,15 @@
+FROM node:boron
+
+# Create app directory
+RUN mkdir /app/
+WORKDIR /app/
+
+# Install Dependencies
+COPY package.json yarn.lock /app/
+RUN yarn --pure-lockfile
+
+# Copy app source
+COPY . /app/
+
+EXPOSE 3000
+CMD [ "npm", "start" ]

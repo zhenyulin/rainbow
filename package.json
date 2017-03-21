@@ -1,0 +1,44 @@
+{
+  "name": "beck",
+  "version": "1.0.0",
+  "description": "scraper test framework",
+  "author": "Zhenyu Lin",
+  "private": true,
+  "license": "ISC",
+  "scripts": {
+    "start": "export NODE_PATH=. && nodemon server/server.js --exec babel-node --ignore client/ --ignore node_modules/",
+    "build": "babel server -d dist/server --copy-files --ignore **/*.spec.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint server config -c config/eslint.js",
+    "lint:fix": "npm run lint -- --fix",
+    "staging": "export NODE_PATH=./dist && node dist/server/server.js",
+    "serve": "export NODE_PATH=./dist && NODE_ENV=production node dist/server/server.js",
+    "serve:fresh": "npm run build && npm run serve"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "colors": "^1.1.2",
+    "csv-parser": "^1.11.0",
+    "d3-dsv": "^1.0.5",
+    "express": "^4.15.1",
+    "json2csv": "^3.7.3",
+    "mongoose": "^4.9.0",
+    "nightmare": "^2.10.0",
+    "request": "^2.80.0",
+    "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-latest": "^6.22.0",
+    "eslint": "^3.17.0",
+    "eslint-plugin-jest": "^19.0.1",
+    "jest": "^19.0.2",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.11.0"
+  },
+  "peerDependencies": {}
+}
