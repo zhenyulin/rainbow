@@ -3,7 +3,7 @@ import cheerio from 'cheerio';
 import { parsePrice } from 'server/utils/parser';
 import Sample from 'server/models/sample';
 import Keyword from 'server/models/keyword';
-import { TEST_KEYWORDS } from './sample.spec.js';
+// import { TEST_KEYWORDS } from './sample.spec.js';
 
 const START = 'https://www.ebay.co.uk';
 // let INDEX = 0;

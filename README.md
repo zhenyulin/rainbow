@@ -29,3 +29,6 @@ A scraper example based on Nightmare.js, using ES7 async/await patterns and prom
  * fix the bug of electron not stopped when stop the scraper process
  * docker support for electron
  * cli implementation with `inquirer`
+ * utilise mongodb bulk insert for keyword upload with `async.series`
+ * add proper unit test for `scrape/sample`
+ * add scraper example with the request method

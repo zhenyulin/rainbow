@@ -16,4 +16,3 @@ router.use('/scrape/sample', scrape);
 router.use('/download/sample', download);
 
 export default router;
-download();
