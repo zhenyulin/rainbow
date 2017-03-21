@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: config/Dockerfile.dev
+    image: rainbow
+    volumes:
+      - ./:/app/
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
