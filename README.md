@@ -1,5 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/zhenyulin/rainbow/badges/gpa.svg)](https://codeclimate.com/github/zhenyulin/rainbow)
+
 # rainbow
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 A scraper example based on Nightmare.js, using ES7 async/await patterns and promise pools to benchmark performance of each batch
 
 ## About
