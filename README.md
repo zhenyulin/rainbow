@@ -1,4 +1,4 @@
-# rainbow [![Code Climate](https://codeclimate.com/github/zhenyulin/rainbow/badges/gpa.svg)](https://codeclimate.com/github/zhenyulin/rainbow) [![Build Status](https://travis-ci.org/zhenyulin/rainbow.svg?branch=master)](https://travis-ci.org/zhenyulin/rainbow)
+# rainbow [![Code Climate](https://codeclimate.com/github/zhenyulin/rainbow/badges/gpa.svg)](https://codeclimate.com/github/zhenyulin/rainbow) [![Build Status](https://travis-ci.org/zhenyulin/rainbow.svg?branch=master)](https://travis-ci.org/zhenyulin/rainbow) [![Coverage Status](https://coveralls.io/repos/github/zhenyulin/hangman/badge.svg?branch=master)](https://coveralls.io/github/zhenyulin/hangman?branch=master)
 A scraper example based on Nightmare.js, using ES7 async/await patterns and promise pools to benchmark performance of each batch
 
 ## About
