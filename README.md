@@ -1,5 +1,5 @@
 # rainbow
-
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 A scraper example based on Nightmare.js, using ES7 async/await patterns and promise pools to benchmark performance of each batch
 
 ## About
@@ -29,5 +29,5 @@ A scraper example based on Nightmare.js, using ES7 async/await patterns and prom
  * fix the bug of electron not stopped when stop the scraper process
  * cli implementation with `inquirer`
  * utilise mongodb bulk insert for keyword upload on top of stream control
- * add proper unit test for `scrape/sample`
+ * add unit test for `scrape/sample`
  * add scraper example based on API request
