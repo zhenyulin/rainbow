@@ -13,7 +13,7 @@ const app = express();
 connectDB();
 
 if (process.env.NODE_ENV !== 'production') {
-	app.use(require('morgan')('dev'));
+  app.use(require('morgan')('dev'));
 } else {
 	// production only middlewars
 }
