@@ -13,7 +13,7 @@ export default function connectDB() {
   if (process.env.NODE_ENV !== 'production') {
     mongoose.connect(DEVELOPMENT_DB, DB_OPTIONS);
     mongoose.set('debug', true);
-  }	else {
+  } else {
     mongoose.connect(PRODUCTION_DB, DB_OPTIONS);
   }
 

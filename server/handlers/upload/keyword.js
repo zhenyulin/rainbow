@@ -18,37 +18,37 @@ export default async function () {
     if (unresolved > BULK_SIZE) {
       stream.pause();
     }
-    const save = new Promise((resolve, reject) => {
+    const save = new Promise((resolve) => {
       const keyword = new Keyword({
         keyword: row.word,
         scraped: false,
       });
       keyword.save().then(() => {
-        counter++;
-        unresolved--;
+        counter += 1;
+        unresolved -= 1;
         if (stream.isPaused() && unresolved < 1) {
           stream.resume();
         }
         console.log(`new word: ${row.word}`);
         resolve();
       })
-			.catch((err) => {
-  if (err.code === 11000) {
-    console.log(colors.grey(`existed: ${row.word}`));
-  }				else {
-					// reject(err.message);
-    console.log(err.message);
-  }
-  unresolved--;
-  if (stream.isPaused() && unresolved < 1) {
-    stream.resume();
-  }
-  resolve();
-});
+      .catch((err) => {
+        if (err.code === 11000) {
+          console.log(colors.grey(`existed: ${row.word}`));
+        } else {
+        // reject(err.message);
+          console.log(err.message);
+        }
+        unresolved -= 1;
+        if (stream.isPaused() && unresolved < 1) {
+          stream.resume();
+        }
+        resolve();
+      });
     });
     saves.push(save);
-    unresolved++;
-    total++;
+    unresolved += 1;
+    total += 1;
   });
   stream.on('end', async () => {
     await Promise.all(saves);

@@ -25,18 +25,18 @@ export const scrapeKeyword = keyword => new Promise(async (resolve, reject) => {
 
   try {
     const resultPage = await nightmare
-			.goto(START)
-			.insert('input#gh-ac', keyword)
-			.click('input#gh-btn')
-			.wait('ul#ListViewInner')
-			.evaluate(() => document.body.innerHTML)
-			.end();
+    .goto(START)
+    .insert('input#gh-ac', keyword)
+    .click('input#gh-btn')
+    .wait('ul#ListViewInner')
+    .evaluate(() => document.body.innerHTML)
+    .end();
     const $ = cheerio.load(resultPage);
     const samples = [];
     $('ul#ListViewInner li.sresult').each((i, e) => samples.push(extractSample($(e), keyword)));
     await Promise.all(samples)
-			.then(() => console.timeEnd(mark))
-			.catch(err => console.log(err));
+    .then(() => console.timeEnd(mark))
+    .catch(err => console.log(err));
     resolve();
   } catch (err) {
     reject(err);
@@ -44,14 +44,14 @@ export const scrapeKeyword = keyword => new Promise(async (resolve, reject) => {
 });
 
 export const scrapeNext = async () => {
-	// const keyword = TEST_KEYWORDS[INDEX];
+  // const keyword = TEST_KEYWORDS[INDEX];
   const result = await Keyword.findOneAndUpdate({ scraped: false }, { scraped: true });
   if (result === null) { return console.log('no more unscraped keyword'); }
   const { keyword } = result;
   await scrapeKeyword(keyword);
-  scrapeNext();
-	// INDEX++;
-	// INDEX < TEST_KEYWORDS.length ? scrapeNext() : console.log('No more unscraped keyword');
+  return scrapeNext();
+  // INDEX++;
+  // INDEX < TEST_KEYWORDS.length ? scrapeNext() : console.log('No more unscraped keyword');
 };
 
 export default function () {

@@ -1,6 +1,4 @@
-import {
-	parsePrice,
-} from './parser';
+import { parsePrice } from './parser';
 
 describe('parsePrice', () => {
   it('strip off the currency symbol correctly', () => {

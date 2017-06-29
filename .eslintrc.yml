@@ -29,4 +29,4 @@ rules:
 settings:
   import/resolver:
     node: {moduleDirectory: .}
-    webpack: {config: ./config/webpack.prod.js}
+    webpack: {config: ./config/webpack.server.js}
