@@ -11,18 +11,18 @@ A scraper example based on Nightmare.js, using ES7 async/await patterns and prom
 
  * clone locally
  * fill your mongodb address for PRODUCTION_DB in `server/config/constant`
- * run `npm install` or `yarn`
- * run `npm run build`
- * run `npm run serve`
+ * run `yarn`
+ * run `yarn build`
+ * run `yarn serve`
  * visit `http://localhost:3000/upload/keyword`, this will trigger uploading example keywords to the database
  * once finished, visit `http://localhost:3000/scrape/sample`, this will trigger the scraper to work
  * visit `http://localhost:3000/download/sample` to download the scraped data samples as csv in `data/samples`
 
 # Develop
  * fill your mongodb address for DEVELOPMENT_DB in `server/config/constant`
- * run `npm start` to start the server or use `docker-compose up`
- * run `npm test` for unit test
- * run `npm run test:coverage` for coverage report
+ * run `yarn start` to start the server or use `docker-compose up`
+ * run `yarn test` for unit test
+ * run `yarn cover` for coverage report
 
 # ToDo
  * fix the bug of electron not stopped when stop the scraper process
