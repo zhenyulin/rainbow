@@ -1,13 +1,24 @@
-coverage/
+# dependencies
 node_modules/
-test/
-reports/
-docker_compose/
+
+# build
 dist/
 build/
+.build
+
+# test output
+coverage/
+reports/
+
+# devlopment cache
+docker_compose/
+data/
 
 Dockerfile
 README.md
+LICENSE
+circle.yml
 .gitignore
 .gitlab-ci.yml
 .DS_Store
+.git

@@ -6,12 +6,12 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "start": "export NODE_PATH=. && nodemon server/server.js --exec babel-node --ignore client/ --ignore node_modules/",
+    "start": "webpack --config config/webpack.server.js --progress",
     "lint": "eslint . --fix",
     "lint:watch": "esw . --watch --changed --fix",
     "test": "jest",
     "cover": "jest --coverage",
-    "build": "babel server -d dist/server --copy-files --ignore **/*.spec.js",
+    "build": "webpack -p --config config/webpack.server.prod.js --progress --bail",
     "staging": "NODE_PATH=./dist node dist/server/server.js",
     "serve": "NODE_PATH=./dist NODE_ENV=production node dist/server/server.js",
     "serve:fresh": "npm run build && npm run serve"
@@ -29,11 +29,11 @@
     "request-promise": "^4.1.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.0",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
+    "babel-loader": "^7.1.1",
     "babel-polyfill": "^6.23.0",
-    "babel-preset-latest": "^6.22.0",
+    "babel-preset-env": "^1.5.2",
     "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
@@ -47,7 +47,6 @@
     "eslint-watch": "^3.1.0",
     "jest": "^20.0.4",
     "morgan": "^1.7.0",
-    "nodemon": "^1.11.0",
     "start-server-webpack-plugin": "^2.2.0",
     "webpack": "^3.0.0",
     "webpack-node-externals": "^1.6.0"

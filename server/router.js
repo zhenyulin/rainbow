@@ -7,12 +7,12 @@ import download from 'server/handlers/download/sample';
 
 const router = express.Router();
 
-router.use('/', index);
-
 router.use('/upload/keyword', keyword);
 
 router.use('/scrape/sample', scrape);
 
 router.use('/download/sample', download);
+
+router.use('/', index);
 
 export default router;

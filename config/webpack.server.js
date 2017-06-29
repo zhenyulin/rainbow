@@ -13,6 +13,11 @@ module.exports = {
     path: path.resolve('.build'),
     filename: 'server.js',
   },
+  resolve: {
+    alias: {
+      server: path.resolve('./server'),
+    },
+  },
   watch: true,
   target: 'node',
   externals: [nodeExternals({
