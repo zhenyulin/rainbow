@@ -1,5 +1,5 @@
 {
-  "name": "beck",
+  "name": "rainbow",
   "version": "1.0.0",
   "description": "scraper test framework",
   "author": "Zhenyu Lin",
@@ -7,13 +7,13 @@
   "license": "ISC",
   "scripts": {
     "start": "export NODE_PATH=. && nodemon server/server.js --exec babel-node --ignore client/ --ignore node_modules/",
-    "build": "babel server -d dist/server --copy-files --ignore **/*.spec.js",
+    "lint": "eslint . --fix",
+    "lint:watch": "esw . --watch --changed --fix",
     "test": "jest",
     "cover": "jest --coverage",
-    "lint": "eslint server config -c config/eslint.js",
-    "lint:fix": "npm run lint -- --fix",
-    "staging": "export NODE_PATH=./dist && node dist/server/server.js",
-    "serve": "export NODE_PATH=./dist && NODE_ENV=production node dist/server/server.js",
+    "build": "babel server -d dist/server --copy-files --ignore **/*.spec.js",
+    "staging": "NODE_PATH=./dist node dist/server/server.js",
+    "serve": "NODE_PATH=./dist NODE_ENV=production node dist/server/server.js",
     "serve:fresh": "npm run build && npm run serve"
   },
   "dependencies": {
@@ -36,10 +36,19 @@
     "babel-preset-latest": "^6.22.0",
     "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
-    "eslint-plugin-jest": "^19.0.1",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-import-resolver-node": "^0.3.0",
+    "eslint-import-resolver-webpack": "^0.8.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-watch": "^3.1.0",
     "jest": "^20.0.4",
     "morgan": "^1.7.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "webpack": "^3.0.0"
   },
   "peerDependencies": {}
 }
