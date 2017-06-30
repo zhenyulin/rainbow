@@ -4,17 +4,18 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   devtool: 'source-map',
+  target: 'node',
   entry: './server/index',
   output: {
-    path: path.resolve('./dist/server'),
+    path: path.resolve('./dist'),
     filename: 'server.js',
   },
   resolve: {
-    alias: {
-      server: path.resolve('./server'),
-    },
+    modules: [
+      path.resolve('.'),
+      'node_modules',
+    ],
   },
-  target: 'node',
   externals: nodeExternals(),
   module: {
     rules: [
@@ -28,9 +29,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {
-              name: '[path][name]_[hash:base64:5].[ext]',
-            },
+            options: { name: '[path][name]_[hash:base64:5].[ext]' },
           },
         ],
       },

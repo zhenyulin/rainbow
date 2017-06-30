@@ -6,14 +6,14 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "start": "webpack --config config/webpack.server.js --progress",
+    "start": "webpack --config config/webpack.server.dev.js --progress",
+    "watch": "esw . --watch --changed --fix",
     "lint": "eslint . --fix",
-    "lint:watch": "esw . --watch --changed --fix",
     "test": "jest",
     "cover": "jest --coverage",
     "build": "webpack -p --config config/webpack.server.prod.js --progress --bail",
-    "staging": "NODE_PATH=./dist node dist/server/server.js",
-    "serve": "NODE_PATH=./dist NODE_ENV=production node dist/server/server.js",
+    "staging": "NODE_ENV=development node dist/server.js",
+    "serve": "NODE_ENV=production node dist/server.js",
     "serve:fresh": "npm run build && npm run serve"
   },
   "dependencies": {
@@ -25,8 +25,11 @@
     "json2csv": "^3.7.3",
     "mongoose": "^4.9.0",
     "nightmare": "^2.10.0",
+    "pg": "^6.4.0",
+    "pg-hstore": "^2.3.2",
     "request": "^2.80.0",
-    "request-promise": "^4.1.1"
+    "request-promise": "^4.1.1",
+    "sequelize": "^4.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

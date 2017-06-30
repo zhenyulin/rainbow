@@ -5,6 +5,8 @@ const StartServerPlugin = require('start-server-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
+  watch: true,
+  target: 'node',
   entry: [
     'webpack/hot/poll?1000',
     './server/index',
@@ -14,27 +16,14 @@ module.exports = {
     filename: 'server.js',
   },
   resolve: {
-    alias: {
-      server: path.resolve('./server'),
-    },
+    modules: [
+      path.resolve('.'),
+      'node_modules',
+    ],
   },
-  watch: true,
-  target: 'node',
   externals: [nodeExternals({
     whitelist: ['webpack/hot/poll?1000'],
   })],
-  plugins: [
-    new StartServerPlugin('server.js'),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        BUILD_TARGET: JSON.stringify('server'),
-        NODE_ENV: JSON.stringify('development'),
-      },
-    }),
-  ],
   module: {
     rules: [
       {
@@ -55,6 +44,18 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new StartServerPlugin('server.js'),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        BUILD_TARGET: JSON.stringify('server'),
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
+  ],
   stats: {
     modules: false,
     hash: false,
